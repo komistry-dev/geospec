@@ -10,9 +10,12 @@
 <meta name="apple-mobile-web-app-title" content="GeoSpec">
 <meta name="application-name" content="GeoSpec">
 <meta name="description" content="Mineral Intelligence Platform — AI-powered spectral analysis for Malaysia & Borneo">
-<title>GeoSpec v4.4 — Mineral Intelligence</title>
+<title>GeoSpec v4.5 — Mineral Intelligence</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<!-- iOS icon sizes for all device resolutions -->
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgMTgwIDE4MCI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiMwNjBhMGYiIHJ4PSIzOCIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iNzUiIHI9IjMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyZWU4OWEiIHN0cm9rZS13aWR0aD0iNSIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iNzUiIHI9IjgiIGZpbGw9IiMyZWU4OWEiLz48bGluZSB4MT0iOTAiIHkxPSI0MCIgeDI9IjkwIiB5Mj0iNTIiIHN0cm9rZT0iIzJlZTg5YSIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGxpbmUgeDE9IjkwIiB5MT0iOTgiIHgyPSI5MCIgeTI9IjExMCIgc3Ryb2tlPSIjMmVlODlhIiBzdHJva2Utd2lkdGg9IjUiLz48bGluZSB4MT0iNTUiIHkxPSI3NSIgeDI9IjY3IiB5Mj0iNzUiIHN0cm9rZT0iIzJlZTg5YSIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGxpbmUgeDE9IjExMyIgeTE9Ijc1IiB4Mj0iMTI1IiB5Mj0iNzUiIHN0cm9rZT0iIzJlZTg5YSIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHRleHQgeD0iOTAiIHk9IjE0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMyZWU4OWEiPkdlb1NwZWM8L3RleHQ+PHRleHQgeD0iOTAiIHk9IjE2MyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzNkNGY2YiI+djQuNTwvdGV4dD48L3N2Zz4=">
+<link rel="apple-touch-startup-image" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDQ4IiBoZWlnaHQ9IjI3MzIiIHZpZXdCb3g9IjAgMCAyMDQ4IDI3MzIiPjxyZWN0IHdpZHRoPSIyMDQ4IiBoZWlnaHQ9IjI3MzIiIGZpbGw9IiMwNjBhMGYiLz48Y2lyY2xlIGN4PSIxMDI0IiBjeT0iMTIwMCIgcj0iMjAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyZWU4OWEiIHN0cm9rZS13aWR0aD0iMTIiLz48Y2lyY2xlIGN4PSIxMDI0IiBjeT0iMTIwMCIgcj0iNDUiIGZpbGw9IiMyZWU4OWEiLz48dGV4dCB4PSIxMDI0IiB5PSIxNTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjEwMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMyZWU4OWEiPkdlb1NwZWMgdjQuNTwvdGV4dD48L3N2Zz4="">
 <style>
 :root {
   --bg-void:#060a0f; --bg-deep:#0a0f1a; --bg-panel:#0d1421; --bg-card:#111929;
@@ -24,7 +27,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden;background:var(--bg-void);font-family:var(--body);color:var(--txt)}
 
-/* ── PWA SAFE AREA INSETS ──────────────────────── */
+/* ── PWA SAFE AREA + ROOT VARS ─────────────────── */
 :root {
   --bg-void:#060a0f; --bg-deep:#0a0f1a; --bg-panel:#0d1421; --bg-card:#111929;
   --bg-elev:#15203a; --border:#1e2d4a; --border-hi:#243556;
@@ -35,82 +38,196 @@ html,body{height:100%;overflow:hidden;background:var(--bg-void);font-family:var(
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-l: env(safe-area-inset-left, 0px);
   --safe-r: env(safe-area-inset-right, 0px);
-  --topbar-h: 48px;
-  --bottombar-h: 52px; /* mobile bottom nav */
+  --topbar-h: 50px;
+  --bottombar-h: 56px;
 }
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden;background:var(--bg-void);font-family:var(--body);color:var(--txt)}
+*{box-sizing:border-box;margin:0;padding:0;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;}
+html{height:100%;height:-webkit-fill-available;}
+body{
+  height:100vh;height:-webkit-fill-available;
+  overflow:hidden;background:var(--bg-void);
+  font-family:var(--body);color:var(--txt);
+  /* Prevent iOS overscroll bounce on body */
+  overscroll-behavior:none;
+  -webkit-overflow-scrolling:auto;
+}
 
-/* ── DESKTOP LAYOUT (≥768px) ─────────────────── */
-.app{display:grid;grid-template-columns:280px 1fr 320px;grid-template-rows:var(--topbar-h) 1fr 190px;height:100vh;padding-top:var(--safe-t)}
-.topbar{grid-column:1/-1;background:var(--bg-panel);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 18px;gap:10px;z-index:500;flex-shrink:0}
-.sidebar-l{background:var(--bg-panel);border-right:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column}
-.map-wrap{position:relative;background:#0a1520;overflow:hidden;min-height:0;cursor:crosshair}
-.sidebar-r{background:var(--bg-panel);border-left:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column}
-.bottom{grid-column:1/-1;background:var(--bg-deep);border-top:1px solid var(--border);display:flex}
+/* ── DESKTOP (≥1024px — iPad landscape / desktop) ────── */
+.app{
+  display:grid;
+  grid-template-columns:280px 1fr 320px;
+  grid-template-rows:var(--topbar-h) 1fr 190px;
+  height:100vh;height:-webkit-fill-available;
+  padding-top:var(--safe-t);
+  padding-left:var(--safe-l);
+  padding-right:var(--safe-r);
+}
+.topbar{grid-column:1/-1;background:var(--bg-panel);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:10px;z-index:500;flex-shrink:0;padding-left:max(16px,var(--safe-l));padding-right:max(16px,var(--safe-r));}
+.sidebar-l{background:var(--bg-panel);border-right:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;-webkit-overflow-scrolling:touch;}
+.map-wrap{position:relative;background:#0a1520;overflow:hidden;min-height:0;cursor:crosshair;}
+.sidebar-r{background:var(--bg-panel);border-left:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;-webkit-overflow-scrolling:touch;}
+.bottom{grid-column:1/-1;background:var(--bg-deep);border-top:1px solid var(--border);display:flex;}
 
-/* ── MOBILE LAYOUT (<768px) ──────────────────── */
+/* ── TABLET PORTRAIT (768–1023px — iPad portrait) ─────── */
+@media(min-width:768px) and (max-width:1023px){
+  .app{
+    grid-template-columns:260px 1fr;
+    grid-template-rows:var(--topbar-h) 1fr 160px;
+  }
+  .sidebar-r{
+    position:fixed;right:0;top:var(--topbar-h);
+    bottom:0;width:min(340px,50vw);z-index:600;
+    transform:translateX(105%);
+    transition:transform .28s cubic-bezier(.4,0,.2,1);
+    border-left:1px solid var(--border-hi);
+    box-shadow:-4px 0 28px rgba(0,0,0,.6);
+  }
+  .sidebar-r.open{transform:translateX(0);}
+  .bottom{grid-column:1/-1;}
+  /* Show results toggle button in topbar */
+  .results-toggle-btn{display:flex!important;}
+}
+
+/* ── MOBILE (≤767px — iPhone all sizes) ────────────────── */
 @media(max-width:767px){
   .app{
     grid-template-columns:1fr;
     grid-template-rows:var(--topbar-h) 1fr var(--bottombar-h);
-    height:calc(100vh - var(--safe-t) - var(--safe-b));
+    height:100svh; /* svh = small viewport height — handles Safari toolbar */
+    height:-webkit-fill-available;
   }
-  .topbar{padding:0 10px;gap:6px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
-  .topbar::-webkit-scrollbar{display:none}
-  /* Sidebars become sliding drawers on mobile */
+  .topbar{
+    padding:0 10px;gap:5px;
+    overflow-x:auto;overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    padding-left:max(10px,var(--safe-l));
+    padding-right:max(10px,var(--safe-r));
+  }
+  .topbar::-webkit-scrollbar{display:none;}
   .sidebar-l{
-    position:fixed;left:0;top:var(--topbar-h);bottom:var(--bottombar-h);
+    position:fixed;left:0;
+    top:calc(var(--topbar-h) + var(--safe-t));
+    bottom:calc(var(--bottombar-h) + var(--safe-b));
     width:min(300px,90vw);z-index:600;
-    transform:translateX(-105%);transition:transform .25s cubic-bezier(.4,0,.2,1);
-    border-right:1px solid var(--border-hi);box-shadow:4px 0 24px rgba(0,0,0,.6);
+    transform:translateX(-105%);
+    transition:transform .25s cubic-bezier(.4,0,.2,1);
+    border-right:1px solid var(--border-hi);
+    box-shadow:4px 0 24px rgba(0,0,0,.6);
+    -webkit-overflow-scrolling:touch;
   }
-  .sidebar-l.open{transform:translateX(0)}
+  .sidebar-l.open{transform:translateX(0);}
   .sidebar-r{
-    position:fixed;right:0;top:var(--topbar-h);bottom:var(--bottombar-h);
+    position:fixed;right:0;
+    top:calc(var(--topbar-h) + var(--safe-t));
+    bottom:calc(var(--bottombar-h) + var(--safe-b));
     width:min(340px,96vw);z-index:600;
-    transform:translateX(105%);transition:transform .25s cubic-bezier(.4,0,.2,1);
-    border-left:1px solid var(--border-hi);box-shadow:-4px 0 24px rgba(0,0,0,.6);
+    transform:translateX(105%);
+    transition:transform .25s cubic-bezier(.4,0,.2,1);
+    border-left:1px solid var(--border-hi);
+    box-shadow:-4px 0 24px rgba(0,0,0,.6);
+    -webkit-overflow-scrolling:touch;
   }
-  .sidebar-r.open{transform:translateX(0)}
-  /* Drawer scrim */
-  .drawer-scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:590;backdrop-filter:blur(2px)}
-  .drawer-scrim.show{display:block}
-  /* Bottom panel hidden on mobile — replaced by bottom nav */
-  .bottom{display:none}
-  /* Map fills the middle row */
-  .map-wrap{grid-column:1;grid-row:2}
-  /* Hide some topbar elements on very small screens */
-  .badge:not(.live){display:none}
-  .tool-sep{display:none}
-  .sp{min-width:4px}
-}
-@media(min-width:768px){
-  .drawer-scrim{display:none!important}
-  .mob-nav{display:none!important}
+  .sidebar-r.open{transform:translateX(0);}
+  .bottom{display:none;}
+  .map-wrap{grid-column:1;grid-row:2;}
+  .badge:not(.live){display:none;}
+  .tool-sep{display:none;}
+  .sp{min-width:4px;}
 }
 
-/* ── MOBILE BOTTOM NAV ───────────────────────── */
+@media(min-width:768px){
+  .drawer-scrim{display:none!important;}
+  .mob-nav{display:none!important;}
+  .results-toggle-btn{display:none;}
+}
+
+/* ── DRAWER SCRIM ────────────────────────────────────────── */
+.drawer-scrim{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.5);z-index:590;
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+.drawer-scrim.show{display:block;}
+
+/* ── MOBILE BOTTOM NAV ───────────────────────────────────── */
 .mob-nav{
   grid-column:1;grid-row:3;
   display:flex;align-items:stretch;
-  background:var(--bg-panel);border-top:1px solid var(--border);
-  padding-bottom:var(--safe-b);z-index:500;
+  background:var(--bg-panel);
+  border-top:1px solid var(--border);
+  padding-bottom:max(var(--safe-b), 4px);
+  padding-left:var(--safe-l);
+  padding-right:var(--safe-r);
+  z-index:500;
+  /* iOS frosted glass effect */
+  backdrop-filter:blur(20px) saturate(1.8);
+  -webkit-backdrop-filter:blur(20px) saturate(1.8);
+  background:rgba(13,20,33,.92);
 }
 .mob-nav-btn{
   flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:3px;padding:6px 2px;
   background:none;border:none;color:var(--txt3);cursor:pointer;
   font-family:var(--mono);font-size:8px;letter-spacing:.05em;
-  transition:color .15s;-webkit-tap-highlight-color:transparent;
+  transition:color .15s;
+  -webkit-tap-highlight-color:transparent;
+  /* Minimum touch target 44×44pt per Apple HIG */
+  min-height:44px;
 }
-.mob-nav-btn.active{color:var(--green)}
-.mob-nav-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.mob-nav-sep{width:1px;background:var(--border);align-self:stretch;margin:8px 0}
+.mob-nav-btn.active{color:var(--green);}
+.mob-nav-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.mob-nav-sep{width:1px;background:var(--border);align-self:stretch;margin:8px 0;}
 
-/* ── INSTALL BANNER ──────────────────────────── */
+/* ── iOS INSTALL GUIDE BANNER ────────────────────────────── */
+/* iOS has no beforeinstallprompt — show manual share-sheet guide */
+.ios-install-banner{
+  position:fixed;
+  bottom:calc(var(--safe-b) + 62px);
+  left:50%;transform:translateX(-50%);
+  background:var(--bg-elev);
+  border:1px solid var(--green);
+  border-radius:12px;
+  padding:12px 16px;
+  display:none;
+  flex-direction:column;
+  gap:8px;
+  font-size:11px;color:var(--txt);
+  z-index:800;
+  box-shadow:0 4px 32px rgba(0,0,0,.6);
+  max-width:calc(100vw - 32px);
+  width:320px;
+  animation:slideUp .3s ease;
+}
+.ios-install-banner.show{display:flex;}
+.ios-install-banner .iib-title{
+  color:var(--green);font-weight:700;font-size:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.ios-install-banner .iib-step{
+  display:flex;align-items:flex-start;gap:10px;
+  color:var(--txt2);line-height:1.5;
+}
+.ios-install-banner .iib-num{
+  background:var(--green);color:#000;
+  border-radius:50%;width:18px;height:18px;min-width:18px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:9px;margin-top:1px;
+}
+.ios-install-banner .iib-close{
+  background:none;border:none;color:var(--txt3);
+  cursor:pointer;font-size:16px;align-self:flex-end;
+  padding:2px;min-height:44px;min-width:44px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── ANDROID INSTALL BANNER ─────────────────────────────── */
 .install-banner{
-  position:fixed;bottom:calc(var(--safe-b) + 58px);left:50%;transform:translateX(-50%);
+  position:fixed;
+  bottom:calc(var(--safe-b) + 62px);
+  left:50%;transform:translateX(-50%);
   background:var(--bg-elev);border:1px solid var(--green);border-radius:10px;
   padding:10px 16px;display:flex;align-items:center;gap:12px;
   font-size:11px;color:var(--txt);z-index:800;
@@ -118,12 +235,95 @@ html,body{height:100%;overflow:hidden;background:var(--bg-void);font-family:var(
   animation:slideUp .3s ease;
 }
 @keyframes slideUp{from{transform:translateX(-50%) translateY(20px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
-.install-banner.hidden{display:none}
-.install-banner .ib-icon{font-size:22px;flex-shrink:0}
-.install-banner .ib-text{flex:1;line-height:1.4}
-.install-banner .ib-text strong{color:var(--green);display:block;font-size:12px}
-.install-banner .ib-btn{background:var(--green);color:#000;border:none;border-radius:6px;padding:6px 12px;font-family:var(--mono);font-size:10px;font-weight:700;cursor:pointer;flex-shrink:0}
-.install-banner .ib-close{background:none;border:none;color:var(--txt3);cursor:pointer;font-size:14px;padding:2px;flex-shrink:0}
+.install-banner.hidden{display:none;}
+.install-banner .ib-icon{font-size:22px;flex-shrink:0;}
+.install-banner .ib-text{flex:1;line-height:1.4;}
+.install-banner .ib-text strong{color:var(--green);display:block;font-size:12px;}
+.install-banner .ib-btn{background:var(--green);color:#000;border:none;border-radius:6px;padding:6px 12px;font-family:var(--mono);font-size:10px;font-weight:700;cursor:pointer;flex-shrink:0;min-height:44px;}
+.install-banner .ib-close{background:none;border:none;color:var(--txt3);cursor:pointer;font-size:14px;padding:2px;flex-shrink:0;min-height:44px;min-width:44px;}
+
+/* ── LOCATION SEARCH ─────────────────────────── */
+.search-wrap{
+  position:relative;display:flex;align-items:center;
+  background:var(--bg-elev);border:1px solid var(--border-hi);
+  border-radius:8px;transition:border-color .15s, box-shadow .15s;
+  flex-shrink:0;width:220px;
+}
+.search-wrap:focus-within{border-color:var(--green);box-shadow:0 0 0 2px rgba(46,232,154,.15);}
+.search-wrap .search-icon{
+  padding:0 8px;color:var(--txt3);font-size:13px;pointer-events:none;flex-shrink:0;
+}
+.search-input{
+  flex:1;background:none;border:none;outline:none;
+  color:var(--txt);font-family:var(--mono);font-size:10px;
+  padding:7px 4px 7px 0;min-width:0;
+  -webkit-appearance:none;
+}
+.search-input::placeholder{color:var(--txt3);}
+.search-clear{
+  background:none;border:none;color:var(--txt3);cursor:pointer;
+  padding:4px 8px;font-size:12px;flex-shrink:0;
+  display:none;min-height:36px;min-width:32px;
+}
+.search-clear.show{display:block;}
+.search-clear:hover{color:var(--txt);}
+.search-spinner{
+  padding:0 8px;color:var(--green);font-size:11px;
+  display:none;flex-shrink:0;animation:spin .8s linear infinite;
+}
+.search-spinner.show{display:block;}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Dropdown results */
+.search-results{
+  position:absolute;top:calc(100% + 5px);left:0;right:0;
+  background:var(--bg-panel);border:1px solid var(--border-hi);
+  border-radius:8px;z-index:1100;max-height:260px;overflow-y:auto;
+  box-shadow:0 8px 32px rgba(0,0,0,.6);display:none;
+  -webkit-overflow-scrolling:touch;
+}
+.search-results.show{display:block;}
+.search-results::-webkit-scrollbar{width:3px;}
+.search-results::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.sr-item{
+  padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);
+  transition:background .1s;display:flex;align-items:flex-start;gap:10px;
+}
+.sr-item:last-child{border-bottom:none;}
+.sr-item:hover,.sr-item:active{background:var(--bg-elev);}
+.sr-item:active{background:var(--bg-card);}
+.sr-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+.sr-text{flex:1;min-width:0;}
+.sr-name{font-size:10px;font-weight:600;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sr-sub{font-size:9px;color:var(--txt3);font-family:var(--mono);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sr-coords{font-size:9px;color:var(--green);font-family:var(--mono);margin-top:2px;}
+.sr-section{padding:5px 12px 3px;font-size:8px;color:var(--txt3);font-family:var(--mono);letter-spacing:.08em;background:var(--bg-card);border-bottom:1px solid var(--border);}
+.sr-empty{padding:12px;text-align:center;font-size:10px;color:var(--txt3);font-family:var(--mono);}
+.sr-error{padding:10px 12px;font-size:10px;color:var(--red);font-family:var(--mono);}
+
+/* Mobile search full-width */
+@media(max-width:767px){
+  .search-wrap{width:100%;max-width:280px;}
+  .search-results{
+    position:fixed;left:8px;right:8px;top:calc(var(--topbar-h) + var(--safe-t) + 6px);
+    width:auto;
+  }
+}
+.tool-btn, .mc, .ml, .home-btn, .rgbtn, .rbtn, .tab-btn, .saved-export-btn{
+  min-height:36px;
+}
+@media(max-width:767px){
+  .tool-btn, .mc, .ml, .home-btn, .rgbtn, .rbtn, .tab-btn, .saved-export-btn{
+    min-height:44px;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+}
+
+/* ── iOS CANVAS SCROLL FIX ───────────────────────────────── */
+/* Prevent iOS from capturing touch for rubber-band scroll on canvas layers */
+#heatCanvas,#uiCanvas{touch-action:none;}
+#drawCanvas.analyse-mode{touch-action:none;}
+#drawCanvas.draw-mode{touch-action:none;}
 
 /* ── TOPBAR ────────────────────────────────── */
 .logo{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green);letter-spacing:.05em}
@@ -331,10 +531,25 @@ select{background:var(--bg-card);border:1px solid var(--border);border-radius:6p
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="logo">GeoSpec <span>/ Mineral Intelligence v4.3</span></div>
+  <div class="logo">GeoSpec <span>/ Mineral Intelligence v4.5</span></div>
   <div class="badge live">● LIVE</div>
   <div class="badge">S2 · ASTER · EnMAP · SAR · RF · Coal</div>
   <div class="badge pt" id="coordBadge">Click map to analyse</div>
+  <div class="tool-sep"></div>
+  <!-- ── Location / Coordinate Search ── -->
+  <div class="search-wrap" id="searchWrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="searchInput" type="search"
+           placeholder="Search place or lat, lon…"
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+           oninput="onSearchInput(event)"
+           onkeydown="onSearchKeydown(event)"
+           onfocus="onSearchFocus()"
+           onblur="onSearchBlur()">
+    <span class="search-spinner" id="searchSpinner">⟳</span>
+    <button class="search-clear" id="searchClear" onclick="clearSearch()" tabindex="-1">✕</button>
+    <div class="search-results" id="searchResults"></div>
+  </div>
   <div class="tool-sep"></div>
   <!-- Tool mode buttons -->
   <button class="tool-btn active" id="toolAnalyse" onclick="setToolMode('analyse')" title="Click map to run CoE analysis">🔍 Analyse</button>
@@ -556,7 +771,18 @@ select{background:var(--bg-card);border:1px solid var(--border);border-radius:6p
 <!-- ── MOBILE: drawer scrim (tap to close) ── -->
 <div class="drawer-scrim" id="drawerScrim" onclick="closeAllDrawers()"></div>
 
-<!-- ── MOBILE: install banner ── -->
+<!-- ── iOS install guide (Share → Add to Home Screen) ── -->
+<div class="ios-install-banner" id="iosInstallBanner">
+  <div class="iib-title">
+    ⛏ Install GeoSpec on your iPhone / iPad
+    <button class="iib-close" onclick="dismissIOSInstall()">✕</button>
+  </div>
+  <div class="iib-step"><div class="iib-num">1</div><span>Tap the <b>Share</b> button <b>⎙</b> at the bottom of Safari (iPhone) or top (iPad)</span></div>
+  <div class="iib-step"><div class="iib-num">2</div><span>Scroll down and tap <b>"Add to Home Screen"</b></span></div>
+  <div class="iib-step"><div class="iib-num">3</div><span>Tap <b>Add</b> — GeoSpec appears on your home screen as a full-screen app</span></div>
+</div>
+
+<!-- ── Android install banner ── -->
 <div class="install-banner hidden" id="installBanner">
   <div class="ib-icon">⛏</div>
   <div class="ib-text">
@@ -818,7 +1044,23 @@ function flyTo(el,label,lat,lon,zoom,desc){
 // ═══════════════════════════════════════════════════════════════════
 
 function selMin(el,key){
-  document.querySelectorAll('.mitem').forEach(function(m){m.classList.remove('on')});el.classList.add('on');
+  document.querySelectorAll('.mitem').forEach(function(m){m.classList.remove('on')});
+  el.classList.add('on');
+  // Update activeFilters — 'ALL' re-enables every mineral
+  if(key==='ALL'){
+    Object.keys(activeFilters).forEach(function(k){activeFilters[k]=true;});
+  } else {
+    // Show ONLY the selected mineral in the heatmap; others hidden
+    Object.keys(activeFilters).forEach(function(k){activeFilters[k]=(k===key);});
+  }
+  // Re-render heatmap if a point is already analysed
+  if(lastLatLon) renderHeatmap();
+  // Highlight the selected mineral's row in the CoE panel
+  document.querySelectorAll('.rp-mineral-row').forEach(function(r){
+    var active = key==='ALL' || r.dataset.mineral===key;
+    r.style.opacity = active ? '1' : '0.28';
+    r.style.transition = 'opacity .2s';
+  });
 }
 function setRad(el,km){
   activeRad=km;
@@ -2162,7 +2404,7 @@ function renderResults(lat, lon, idx, coe, geo) {
       scoreBar += '<div style="width:14px;height:5px;border-radius:2px;background:'+(filled?d.col:'var(--bg-elev)')+'"></div>';
     }
 
-    return '<div style="border:1px solid '+(c.count>=3?d.borderCol:'var(--border)')+';border-radius:7px;padding:10px;margin-bottom:8px;background:'+(c.count>=3?'rgba(0,0,0,0.15)':'var(--bg-card)')+'">' +
+    return '<div class="rp-mineral-row" data-mineral="'+k+'" style="border:1px solid '+(c.count>=3?d.borderCol:'var(--border)')+';border-radius:7px;padding:10px;margin-bottom:8px;background:'+(c.count>=3?'rgba(0,0,0,0.15)':'var(--bg-card)')+';transition:opacity .2s">' +
       '<div style="display:flex;align-items:center;gap:7px;margin-bottom:7px">' +
         '<div style="width:9px;height:9px;border-radius:50%;background:'+d.col+';flex-shrink:0"></div>' +
         '<div style="font-size:12px;font-weight:500;flex:1;color:'+(c.count>=3?d.col:'var(--txt)')+'">'+d.label+'</div>' +
@@ -2213,6 +2455,17 @@ function renderResults(lat, lon, idx, coe, geo) {
     '<div style="margin-top:6px;font-size:8px;color:var(--txt3);font-family:monospace">NDVI: '+idx.NDVI.toFixed(3)+' &nbsp;·&nbsp; Laterite: '+idx.LATERITE.toFixed(3)+' &nbsp;·&nbsp; Geo signal: '+(idx.geo*100).toFixed(0)+'%</div>' +
     '<div class="geo-ctx" style="margin-top:7px">Geology: '+geo+'</div>' +
     '<button class="ask-btn" onclick="sendPrompt(\'At '+lat.toFixed(4)+'°N '+lon.toFixed(4)+'°E, the CoE analysis shows: IOR='+idx.IOR.toFixed(3)+', CMR='+idx.CMR.toFixed(3)+', GOSSAN='+idx.GOSSAN.toFixed(3)+', NDVI='+idx.NDVI.toFixed(3)+'. Au criteria met: '+coe.Au.count+'/5, Cu: '+coe.Cu.count+'/5, REE: '+coe.REE.count+'/5. What does this combination suggest geologically for Malaysian terrain, and what specific field follow-up steps should be taken?\')">Ask Claude for field follow-up strategy ↗</button>';
+  // Re-apply any active mineral filter to the freshly-rendered rows
+  var activeMinKey = null;
+  document.querySelectorAll('.mitem.on').forEach(function(el){
+    var k = el.getAttribute('onclick').match(/'([^']+)'\)/);
+    if(k) activeMinKey = k[1];
+  });
+  if(activeMinKey && activeMinKey !== 'ALL'){
+    document.querySelectorAll('.rp-mineral-row').forEach(function(r){
+      r.style.opacity = r.dataset.mineral===activeMinKey ? '1' : '0.28';
+    });
+  }
 }
 
 function renderSpectrum(bands) {
@@ -2277,30 +2530,385 @@ function renderMethodologyNote() {
 renderMethodologyNote();
 
 // ══════════════════════════════════════════════════════════════════
-// PWA — MANIFEST + SERVICE WORKER + MOBILE UI
+// LOCATION & COORDINATE SEARCH ENGINE
+// Supports:
+//   • Place names        → Nominatim (OpenStreetMap) geocoding
+//   • Decimal degrees    → "3.9, 102.1"  or  "3.9 102.1"
+//   • DMS format         → "3°54'12\"N 102°06'30\"E"
+//   • Plus codes         → delegated to Nominatim
+//   • Presets shortcut   → instantly flies to known GeoSpec presets
 // ══════════════════════════════════════════════════════════════════
 
-// ── Inline Web App Manifest (injected as blob URL) ───────────────
-(function injectManifest(){
-  var manifest = {
-    name: "GeoSpec — Mineral Intelligence",
-    short_name: "GeoSpec",
-    description: "AI-powered spectral mineral analysis for Malaysia & Borneo",
-    start_url: ".",
-    display: "standalone",
-    orientation: "any",
-    background_color: "#060a0f",
-    theme_color: "#060a0f",
-    categories: ["productivity","science","utilities"],
-    icons: [
-      { src: buildIcon(192), sizes: "192x192", type: "image/png", purpose: "any maskable" },
-      { src: buildIcon(512), sizes: "512x512", type: "image/png", purpose: "any maskable" }
-    ]
+var _searchTimer   = null;
+var _searchAbort   = null;  // AbortController for in-flight fetch
+var _selectedIdx   = -1;    // keyboard navigation index
+var _lastResults   = [];    // cached result objects
+
+// ── Preset locations for instant results ──────────────────────────
+var SEARCH_PRESETS = [
+  {name:'Bentong-Raub Gold Belt',   sub:'Pahang, Malaysia',        lat:3.90, lon:102.10, zoom:10, icon:'🥇'},
+  {name:'Penjom Gold Mine',         sub:'Lipis, Pahang',           lat:4.11, lon:101.74, zoom:13, icon:'⛏'},
+  {name:'Selinsing Gold Mine',      sub:'Pahang, Malaysia',        lat:4.45, lon:102.08, zoom:13, icon:'⛏'},
+  {name:'Mamut Copper Mine',        sub:'Sabah, Malaysia',         lat:5.90, lon:116.58, zoom:13, icon:'🔵'},
+  {name:'Bau Gold District',        sub:'Sarawak, Malaysia',       lat:1.41, lon:110.15, zoom:12, icon:'🥇'},
+  {name:'Mukah-Balingian Coalfield',sub:'Sarawak, Malaysia',       lat:2.91, lon:112.06, zoom:11, icon:'⬛'},
+  {name:'Sg Lembing Tin Belt',      sub:'Pahang, Malaysia',        lat:4.23, lon:103.23, zoom:11, icon:'🔩'},
+  {name:'Kuala Lumpur',             sub:'Federal Territory, Malaysia', lat:3.14, lon:101.69, zoom:11, icon:'🏙'},
+  {name:'Kuching',                  sub:'Sarawak, Malaysia',       lat:1.55, lon:110.34, zoom:11, icon:'🏙'},
+  {name:'Kota Kinabalu',            sub:'Sabah, Malaysia',         lat:5.98, lon:116.07, zoom:11, icon:'🏙'},
+];
+
+// ── Coordinate parsers ────────────────────────────────────────────
+function tryParseCoords(q){
+  q = q.trim();
+
+  // Format 1: decimal "3.9, 102.1" or "3.9 102.1"
+  var m = q.match(/^(-?\d+\.?\d*)[,\s]+(-?\d+\.?\d*)$/);
+  if(m){
+    var lat=parseFloat(m[1]), lon=parseFloat(m[2]);
+    if(lat>=-90&&lat<=90&&lon>=-180&&lon<=180)
+      return {lat:lat, lon:lon, label:lat.toFixed(5)+'°, '+lon.toFixed(5)+'°', type:'coord'};
+    // Try swapped (user might enter lon,lat)
+    if(lon>=-90&&lon<=90&&lat>=-180&&lat<=180)
+      return {lat:lon, lon:lat, label:lon.toFixed(5)+'°, '+lat.toFixed(5)+'° (swapped)', type:'coord'};
+  }
+
+  // Format 2: DMS "3°54'12"N 102°6'30"E" or "3 54 12 N, 102 6 30 E"
+  var dms = q.match(/(\d+)[°\s](\d+)['\s](\d+(?:\.\d+)?)["\s]?\s*([NS])[,\s]+(\d+)[°\s](\d+)['\s](\d+(?:\.\d+)?)["\s]?\s*([EW])/i);
+  if(dms){
+    var lat2 = dmsToDD(parseFloat(dms[1]),parseFloat(dms[2]),parseFloat(dms[3]),dms[4]);
+    var lon2 = dmsToDD(parseFloat(dms[5]),parseFloat(dms[6]),parseFloat(dms[7]),dms[8]);
+    return {lat:lat2, lon:lon2, label:formatDMS(lat2,lon2), type:'coord'};
+  }
+
+  // Format 3: signed decimal with N/S/E/W  "3.9N 102.1E"
+  var nsew = q.match(/^(\d+\.?\d*)\s*([NS])[,\s]+(\d+\.?\d*)\s*([EW])$/i);
+  if(nsew){
+    var lat3 = parseFloat(nsew[1])*(nsew[2].toUpperCase()==='S'?-1:1);
+    var lon3 = parseFloat(nsew[3])*(nsew[4].toUpperCase()==='W'?-1:1);
+    return {lat:lat3, lon:lon3, label:formatDMS(lat3,lon3), type:'coord'};
+  }
+
+  return null;
+}
+
+function dmsToDD(d,m,s,dir){
+  var dd = d + m/60 + s/3600;
+  return (dir.toUpperCase()==='S'||dir.toUpperCase()==='W') ? -dd : dd;
+}
+
+function formatDMS(lat,lon){
+  function fmt(v,pos,neg){
+    var d=Math.abs(v),deg=Math.floor(d),min=Math.floor((d-deg)*60),sec=((d-deg)*60-min)*60;
+    return deg+'°'+min+"'"+sec.toFixed(1)+'" '+(v>=0?pos:neg);
+  }
+  return fmt(lat,'N','S')+'  '+fmt(lon,'E','W');
+}
+
+// ── Main input handler ────────────────────────────────────────────
+function onSearchInput(e){
+  var q = e.target.value.trim();
+  document.getElementById('searchClear').classList.toggle('show', q.length>0);
+  _selectedIdx = -1;
+
+  if(!q){ closeSearchResults(); return; }
+
+  // Instant coordinate parse
+  var coord = tryParseCoords(q);
+  if(coord){
+    showResults([{type:'coord', lat:coord.lat, lon:coord.lon,
+      name:coord.label, sub:'Coordinates · tap to fly there', icon:'📍'}]);
+    return;
+  }
+
+  // Debounce geocode for place names (300ms)
+  clearTimeout(_searchTimer);
+  _searchTimer = setTimeout(function(){ geocodeSearch(q); }, 300);
+}
+
+function onSearchFocus(){
+  var q = document.getElementById('searchInput').value.trim();
+  if(q) document.getElementById('searchResults').classList.add('show');
+  else if(q.length===0) showPresets();
+}
+
+function onSearchBlur(){
+  // Delay close so click on result registers first
+  setTimeout(function(){
+    document.getElementById('searchResults').classList.remove('show');
+  }, 200);
+}
+
+function onSearchKeydown(e){
+  var items = document.querySelectorAll('.sr-item');
+  if(e.key==='ArrowDown'){
+    e.preventDefault();
+    _selectedIdx = Math.min(_selectedIdx+1, items.length-1);
+    highlightItem(items);
+  } else if(e.key==='ArrowUp'){
+    e.preventDefault();
+    _selectedIdx = Math.max(_selectedIdx-1, 0);
+    highlightItem(items);
+  } else if(e.key==='Enter'){
+    e.preventDefault();
+    if(_selectedIdx>=0 && items[_selectedIdx]) items[_selectedIdx].click();
+    else if(_lastResults.length===1) selectResult(_lastResults[0]);
+  } else if(e.key==='Escape'){
+    clearSearch();
+  }
+}
+
+function highlightItem(items){
+  items.forEach(function(el,i){
+    el.style.background = i===_selectedIdx ? 'var(--bg-elev)' : '';
+  });
+  if(items[_selectedIdx]) items[_selectedIdx].scrollIntoView({block:'nearest'});
+}
+
+// ── Preset instant results ─────────────────────────────────────────
+function showPresets(){
+  var q = document.getElementById('searchInput').value.toLowerCase();
+  var filtered = q.length > 0
+    ? SEARCH_PRESETS.filter(function(p){ return p.name.toLowerCase().includes(q)||p.sub.toLowerCase().includes(q); })
+    : SEARCH_PRESETS.slice(0,6);
+  if(!filtered.length) return;
+  var results = filtered.map(function(p){
+    return {type:'preset', lat:p.lat, lon:p.lon, zoom:p.zoom,
+            name:p.name, sub:p.sub, icon:p.icon};
+  });
+  showResults(results, 'GeoSpec Presets');
+}
+
+// ── Nominatim geocoding ───────────────────────────────────────────
+function geocodeSearch(q){
+  // Show presets that match first, then fetch Nominatim
+  showPresets();
+  setSearchLoading(true);
+
+  if(_searchAbort) _searchAbort.abort();
+  _searchAbort = typeof AbortController !== 'undefined' ? new AbortController() : null;
+
+  var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=6&q='+
+            encodeURIComponent(q)+
+            '&viewbox=99.5,7.0,120.0,1.0&bounded=0&addressdetails=1&accept-language=en';
+
+  var opts = {headers:{'Accept-Language':'en','User-Agent':'GeoSpec/4.5'}};
+  if(_searchAbort) opts.signal = _searchAbort.signal;
+
+  fetch(url, opts)
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      setSearchLoading(false);
+      if(!data||!data.length){
+        // No Nominatim results — show just presets or empty state
+        var presetMatches = SEARCH_PRESETS.filter(function(p){
+          return p.name.toLowerCase().includes(q.toLowerCase())||p.sub.toLowerCase().includes(q.toLowerCase());
+        });
+        if(presetMatches.length){
+          showResults(presetMatches.map(function(p){
+            return {type:'preset',lat:p.lat,lon:p.lon,zoom:p.zoom,name:p.name,sub:p.sub,icon:p.icon};
+          }),'GeoSpec Presets');
+        } else {
+          showEmpty(q);
+        }
+        return;
+      }
+
+      var geo = data.map(function(item){
+        var lat = parseFloat(item.lat), lon = parseFloat(item.lon);
+        var icon = iconForType(item.type, item.class);
+        var addr = item.address || {};
+        var sub = [addr.state||addr.county, addr.country].filter(Boolean).join(', ') || item.display_name.split(',').slice(-2).join(',').trim();
+        return {type:'place', lat:lat, lon:lon, zoom:zoomForType(item.type, item.class),
+                name:item.display_name.split(',')[0], sub:sub, icon:icon,
+                coords:lat.toFixed(5)+'°N  '+lon.toFixed(5)+'°E'};
+      });
+
+      // Prepend matching presets
+      var presetMatches = SEARCH_PRESETS.filter(function(p){
+        return p.name.toLowerCase().includes(q.toLowerCase());
+      });
+      var combined = presetMatches.map(function(p){
+        return {type:'preset',lat:p.lat,lon:p.lon,zoom:p.zoom,name:p.name,sub:p.sub,icon:p.icon};
+      }).concat(geo);
+
+      showResults(combined, presetMatches.length ? null : 'OpenStreetMap Results');
+    })
+    .catch(function(err){
+      if(err.name==='AbortError') return;
+      setSearchLoading(false);
+      showError('Network error — check connection');
+    });
+}
+
+function iconForType(type, cls){
+  var map = {
+    city:'🏙', town:'🏘', village:'🏡', hamlet:'🏡',
+    mine:'⛏', quarry:'⛏', peak:'⛰', mountain:'⛰',
+    river:'🌊', lake:'🌊', bay:'🌊',
+    island:'🏝', park:'🌿', forest:'🌲',
+    airport:'✈', station:'🚉', port:'⚓',
+    university:'🎓', hospital:'🏥',
+    country:'🗺', state:'🗺', county:'📍'
   };
-  // Build SVG→PNG icon as data URI
+  return map[type]||map[cls]||'📍';
+}
+
+function zoomForType(type, cls){
+  if(['country'].includes(type)) return 6;
+  if(['state','region'].includes(type)) return 8;
+  if(['county','district'].includes(type)) return 10;
+  if(['city','town'].includes(type)) return 11;
+  if(['village','suburb','hamlet'].includes(type)) return 13;
+  if(['mine','peak','mountain','island'].includes(type)) return 13;
+  return 12;
+}
+
+// ── Result display helpers ────────────────────────────────────────
+function showResults(results, sectionTitle){
+  _lastResults = results;
+  var box = document.getElementById('searchResults');
+  if(!results.length){ showEmpty(); return; }
+
+  var html = '';
+  if(sectionTitle) html += '<div class="sr-section">'+sectionTitle+'</div>';
+
+  results.forEach(function(r, i){
+    html += '<div class="sr-item" data-idx="'+i+'" onclick="selectResult(_lastResults['+i+'])">' +
+      '<span class="sr-icon">'+r.icon+'</span>' +
+      '<div class="sr-text">' +
+        '<div class="sr-name">'+escHtml(r.name)+'</div>' +
+        '<div class="sr-sub">'+escHtml(r.sub||'')+'</div>' +
+        (r.coords ? '<div class="sr-coords">'+r.coords+'</div>' : '') +
+      '</div>' +
+    '</div>';
+  });
+
+  box.innerHTML = html;
+  box.classList.add('show');
+}
+
+function showEmpty(q){
+  var box = document.getElementById('searchResults');
+  box.innerHTML = '<div class="sr-empty">No results for "'+escHtml(q||'')+'"<br>'+
+    '<span style="color:var(--txt3);font-size:8px">Try: place name, "lat, lon", or "3°54\'N 102°6\'E"</span></div>';
+  box.classList.add('show');
+}
+
+function showError(msg){
+  var box = document.getElementById('searchResults');
+  box.innerHTML = '<div class="sr-error">⚠ '+escHtml(msg)+'</div>';
+  box.classList.add('show');
+}
+
+function setSearchLoading(on){
+  document.getElementById('searchSpinner').classList.toggle('show', on);
+}
+
+function closeSearchResults(){
+  document.getElementById('searchResults').classList.remove('show');
+  _lastResults = [];
+}
+
+function clearSearch(){
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchClear').classList.remove('show');
+  closeSearchResults();
+  setSearchLoading(false);
+  clearTimeout(_searchTimer);
+  if(_searchAbort) _searchAbort.abort();
+}
+
+function escHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Fly to result ─────────────────────────────────────────────────
+function selectResult(r){
+  if(!r) return;
+  closeSearchResults();
+  document.getElementById('searchInput').value = r.name;
+  document.getElementById('searchClear').classList.add('show');
+
+  var zoom = r.zoom || 12;
+  leafletMap.flyTo([r.lat, r.lon], zoom, {duration:1.0, easeLinearity:0.25});
+
+  // If it's a precise coordinate, auto-trigger analysis
+  if(r.type === 'coord'){
+    setTimeout(function(){
+      runAnalysisAtPoint({lat:r.lat, lon:r.lon});
+    }, 1200);
+  }
+
+  // Update coord badge
+  document.getElementById('coordBadge').textContent =
+    r.lat.toFixed(4)+'°N, '+r.lon.toFixed(4)+'°E';
+}
+
+// Close results when clicking outside
+document.addEventListener('click', function(e){
+  if(!document.getElementById('searchWrap').contains(e.target)){
+    closeSearchResults();
+  }
+});
+
+// Close on map click/tap
+leafletMap.on('click', function(){ closeSearchResults(); });
+
+// Mobile bottom nav: tapping MAP closes search
+document.getElementById('mnMap') && document.getElementById('mnMap').addEventListener('click', function(){
+  closeSearchResults();
+});
+// ══════════════════════════════════════════════════════════════════
+
+// ── Platform detection ────────────────────────────────────────────
+var UA = navigator.userAgent || '';
+var isIOS     = /iPad|iPhone|iPod/.test(UA) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints > 1);
+var isAndroid = /Android/.test(UA);
+var isSafari  = /Safari/.test(UA) && !/Chrome/.test(UA);
+var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+var isIPad    = /iPad/.test(UA) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints > 1 && window.screen.width >= 768);
+var isIPhone  = isIOS && !isIPad;
+
+console.log('[GeoSpec v4.5]', {platform: isIOS?'iOS':isAndroid?'Android':'Desktop', device: isIPad?'iPad':isIPhone?'iPhone':'', standalone: isStandalone});
+
+// ── Leaflet iOS tap-delay fix ─────────────────────────────────────
+// iOS Safari adds 300ms click delay unless we use Leaflet's tap handler
+if(isIOS && leafletMap){
+  leafletMap.tap && leafletMap.tap.enable();
+  // Disable Leaflet's CSS cursor (not relevant on touch)
+  document.getElementById('leafletMap').style.cursor = 'default';
+}
+
+// ── iOS rubber-band overscroll prevention ─────────────────────────
+// Prevent the whole page from bouncing on iOS — only allow scroll inside sidebars
+document.body.addEventListener('touchmove', function(e){
+  if(toolMode !== 'analyse') return;
+  var t = e.target;
+  while(t && t !== document.body){
+    if(t.id==='sidebarL' || t.id==='sidebarR') return; // allow scroll in drawers
+    t = t.parentElement;
+  }
+  e.preventDefault();
+}, {passive:false});
+
+// ── iOS Leaflet context-menu (long-press) block ───────────────────
+document.getElementById('leafletMap').addEventListener('contextmenu', function(e){
+  e.preventDefault(); return false;
+}, {passive:false});
+
+// ── iOS canvas touch-action fix ───────────────────────────────────
+// On iOS 13+, touch-action:none on canvas prevents ghost scroll artefacts
+[heatCanvas, uiCanvas, drawCanvas].forEach(function(c){
+  c.style.touchAction = 'none';
+  c.style.webkitUserSelect = 'none';
+});
+
+// ── Inline Web App Manifest ───────────────────────────────────────
+(function injectManifest(){
   function buildIcon(sz){
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'+sz+'" height="'+sz+'" viewBox="0 0 100 100">'+
-      '<rect width="100" height="100" fill="#060a0f" rx="20"/>'+
+    var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+sz+'" height="'+sz+'" viewBox="0 0 100 100">'+
+      '<rect width="100" height="100" fill="#060a0f" rx="'+(sz>256?22:18)+'"/>'+
       '<circle cx="50" cy="42" r="22" fill="none" stroke="#2ee89a" stroke-width="3.5"/>'+
       '<circle cx="50" cy="42" r="5" fill="#2ee89a"/>'+
       '<line x1="50" y1="18" x2="50" y2="26" stroke="#2ee89a" stroke-width="3"/>'+
@@ -2308,25 +2916,32 @@ renderMethodologyNote();
       '<line x1="26" y1="42" x2="34" y2="42" stroke="#2ee89a" stroke-width="3"/>'+
       '<line x1="66" y1="42" x2="74" y2="42" stroke="#2ee89a" stroke-width="3"/>'+
       '<text x="50" y="82" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#2ee89a">GeoSpec</text>'+
-      '<text x="50" y="93" text-anchor="middle" font-family="monospace" font-size="7" fill="#3d4f6b">v4.4</text>'+
+      '<text x="50" y="93" text-anchor="middle" font-family="monospace" font-size="7" fill="#3d4f6b">v4.5</text>'+
     '</svg>';
-    return 'data:image/svg+xml;base64,' + btoa(svg);
+    return 'data:image/svg+xml;base64,'+btoa(svg);
   }
-  // Patch icons with real data URIs
-  manifest.icons[0].src = buildIcon(192);
-  manifest.icons[1].src = buildIcon(512);
-  var blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
-  var url  = URL.createObjectURL(blob);
-  var link = document.createElement('link');
-  link.rel = 'manifest'; link.href = url;
+  var manifest={
+    name:'GeoSpec — Mineral Intelligence',
+    short_name:'GeoSpec',
+    description:'AI-powered spectral mineral analysis for Malaysia & Borneo',
+    start_url:'.',display:'standalone',orientation:'any',
+    background_color:'#060a0f',theme_color:'#060a0f',
+    categories:['productivity','science','utilities'],
+    icons:[
+      {src:buildIcon(192),sizes:'192x192',type:'image/png',purpose:'any maskable'},
+      {src:buildIcon(512),sizes:'512x512',type:'image/png',purpose:'any maskable'}
+    ]
+  };
+  var blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+  var link=document.createElement('link');
+  link.rel='manifest';link.href=URL.createObjectURL(blob);
   document.head.appendChild(link);
 })();
 
-// ── Service Worker (inline as blob — provides offline shell) ─────
-// Service workers require http:// or https:// — skip on file:// or blob://
-if('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){
-  var swCode = [
-    "var CACHE='geospec-v44';",
+// ── Service Worker (http/https only) ─────────────────────────────
+if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){
+  var swCode=[
+    "var CACHE='geospec-v45';",
     "var SHELL=['.','https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',",
     " 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css',",
     " 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'];",
@@ -2336,148 +2951,169 @@ if('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){
     "self.addEventListener('activate',function(e){",
     " e.waitUntil(caches.keys().then(function(ks){",
     "  return Promise.all(ks.filter(function(k){return k!==CACHE;}).map(function(k){return caches.delete(k);}));",
-    " })); self.clients.claim();});",
+    " }));self.clients.claim();});",
     "self.addEventListener('fetch',function(e){",
     " if(e.request.method!=='GET')return;",
     " e.respondWith(caches.match(e.request).then(function(r){",
     "  return r||fetch(e.request).catch(function(){return caches.match('.');});",
     " }));});"
   ].join('\n');
-  var swBlob = new Blob([swCode], {type:'text/javascript'});
-  var swURL  = URL.createObjectURL(swBlob);
-  navigator.serviceWorker.register(swURL, {scope: './'})
-    .then(function(reg){ console.log('[GeoSpec] Service worker active, scope:', reg.scope); })
-    .catch(function(e){ console.log('[GeoSpec] SW not available on this protocol — app works fine without it'); });
+  var swBlob=new Blob([swCode],{type:'text/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(swBlob),{scope:'./'})
+    .then(function(r){console.log('[GeoSpec] SW active, scope:',r.scope);})
+    .catch(function(){console.log('[GeoSpec] SW skipped on this protocol.');});
 } else {
-  console.log('[GeoSpec] Offline caching unavailable (requires http/https). All features still work.');
+  console.log('[GeoSpec] Offline caching unavailable (requires http/https).');
 }
 
-// ── Install prompt (Android Chrome "Add to Home Screen") ─────────
-var _deferredInstallPrompt = null;
-window.addEventListener('beforeinstallprompt', function(e){
-  e.preventDefault();
-  _deferredInstallPrompt = e;
-  // Show banner after 3s if not already in standalone mode
-  if(!window.matchMedia('(display-mode: standalone)').matches){
-    setTimeout(function(){
-      document.getElementById('installBanner').classList.remove('hidden');
-    }, 3000);
+// ── Install prompts ───────────────────────────────────────────────
+// Android: native beforeinstallprompt
+var _deferredInstallPrompt=null;
+window.addEventListener('beforeinstallprompt',function(e){
+  e.preventDefault();_deferredInstallPrompt=e;
+  if(!isStandalone){
+    setTimeout(function(){document.getElementById('installBanner').classList.remove('hidden');},3500);
   }
 });
-window.addEventListener('appinstalled', function(){
-  _deferredInstallPrompt = null;
+window.addEventListener('appinstalled',function(){
+  _deferredInstallPrompt=null;
   document.getElementById('installBanner').classList.add('hidden');
-  console.log('[GeoSpec] App installed');
 });
 function triggerInstall(){
-  if(!_deferredInstallPrompt) return;
+  if(!_deferredInstallPrompt)return;
   _deferredInstallPrompt.prompt();
   _deferredInstallPrompt.userChoice.then(function(r){
-    if(r.outcome === 'accepted') document.getElementById('installBanner').classList.add('hidden');
-    _deferredInstallPrompt = null;
+    if(r.outcome==='accepted') document.getElementById('installBanner').classList.add('hidden');
+    _deferredInstallPrompt=null;
   });
 }
-function dismissInstall(){
-  document.getElementById('installBanner').classList.add('hidden');
+function dismissInstall(){document.getElementById('installBanner').classList.add('hidden');}
+
+// iOS: show manual Share→Add to Home Screen guide
+function dismissIOSInstall(){document.getElementById('iosInstallBanner').classList.remove('show');}
+if(isIOS && isSafari && !isStandalone){
+  setTimeout(function(){
+    document.getElementById('iosInstallBanner').classList.add('show');
+  },3500);
 }
 
-// ── Mobile drawer / nav logic ─────────────────────────────────────
-var _mobView = 'map'; // current mobile view
+// ── Mobile nav ────────────────────────────────────────────────────
+var _mobView='map';
 function mobNav(view){
-  _mobView = view;
-  // Update bottom nav active state
+  _mobView=view;
   ['map','config','analysis','saved','tools'].forEach(function(v){
-    var btn = document.getElementById('mn'+v.charAt(0).toUpperCase()+v.slice(1));
-    if(btn) btn.classList.toggle('active', v===view);
+    var btn=document.getElementById('mn'+v.charAt(0).toUpperCase()+v.slice(1));
+    if(btn) btn.classList.toggle('active',v===view);
   });
-  var sL = document.getElementById('sidebarL');
-  var sR = document.getElementById('sidebarR');
-  var scrim = document.getElementById('drawerScrim');
-  // Close both first
+  var sL=document.getElementById('sidebarL');
+  var sR=document.getElementById('sidebarR');
+  var scrim=document.getElementById('drawerScrim');
   if(sL) sL.classList.remove('open');
   if(sR) sR.classList.remove('open');
   if(scrim) scrim.classList.remove('show');
-
   if(view==='config'){
-    if(sL){ sL.classList.add('open'); scrim.classList.add('show'); }
-  } else if(view==='analysis' || view==='saved'){
+    if(sL){sL.classList.add('open');scrim.classList.add('show');}
+  } else if(view==='analysis'||view==='saved'){
     if(sR){
-      sR.classList.add('open'); scrim.classList.add('show');
-      // Switch to the right tab
-      if(view==='saved') switchTab('saved');
-      else switchTab('analysis');
+      sR.classList.add('open');scrim.classList.add('show');
+      if(view==='saved') switchTab('saved'); else switchTab('analysis');
     }
   } else if(view==='tools'){
-    // Tools: switch to polygon mode + show a quick mode sheet
     setToolMode(toolMode==='polygon'?'analyse':'polygon');
   }
-  // 'map' just closes drawers
 }
-
 function closeAllDrawers(){
-  var sL = document.getElementById('sidebarL');
-  var sR = document.getElementById('sidebarR');
-  var scrim = document.getElementById('drawerScrim');
+  var sL=document.getElementById('sidebarL');
+  var sR=document.getElementById('sidebarR');
+  var scrim=document.getElementById('drawerScrim');
   if(sL) sL.classList.remove('open');
   if(sR) sR.classList.remove('open');
   if(scrim) scrim.classList.remove('show');
-  // Return bottom nav to map
   document.getElementById('mnMap').classList.add('active');
   ['mnConfig','mnAnalysis','mnSaved','mnTools'].forEach(function(id){
-    var el=document.getElementById(id); if(el) el.classList.remove('active');
+    var el=document.getElementById(id);if(el)el.classList.remove('active');
   });
   _mobView='map';
 }
 
-// After analysis completes on mobile: auto-open results drawer
-var _origRunAnalysis = runAnalysisAtPoint;
-runAnalysisAtPoint = function(ll){
+// Auto-open results after analysis on mobile
+var _origRunAnalysis=runAnalysisAtPoint;
+runAnalysisAtPoint=function(ll){
   _origRunAnalysis(ll);
-  // On mobile, auto-switch to results pane after short delay
-  if(window.innerWidth < 768){
+  if(window.innerWidth<768){
     setTimeout(function(){
-      if(_mobView !== 'analysis'){
+      if(_mobView!=='analysis'){
         mobNav('analysis');
         document.getElementById('mnAnalysis').classList.add('active');
         ['mnMap','mnConfig','mnSaved','mnTools'].forEach(function(id){
-          var el=document.getElementById(id); if(el) el.classList.remove('active');
+          var el=document.getElementById(id);if(el)el.classList.remove('active');
         });
         _mobView='analysis';
       }
-    }, 600);
+    },600);
   }
 };
 
-// Add IDs to sidebars for mobile drawer targeting
-document.querySelector('.sidebar-l').id = 'sidebarL';
-document.querySelector('.sidebar-r').id = 'sidebarR';
+// Assign sidebar IDs
+document.querySelector('.sidebar-l').id='sidebarL';
+document.querySelector('.sidebar-r').id='sidebarR';
 
-// Swipe-to-close for drawers
+// ── Swipe-to-close drawers (iOS momentum-aware) ───────────────────
 (function(){
-  var startX=0, el=null;
+  var startX=0,startY=0,el=null,startTime=0;
   document.addEventListener('touchstart',function(e){
-    startX=e.touches[0].clientX; el=null;
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+    startTime=Date.now(); el=null;
     var sL=document.getElementById('sidebarL');
     var sR=document.getElementById('sidebarR');
-    if(sL&&sL.classList.contains('open')) el=sL;
-    if(sR&&sR.classList.contains('open')) el=sR;
+    if(sL&&sL.classList.contains('open'))el=sL;
+    if(sR&&sR.classList.contains('open'))el=sR;
   },{passive:true});
   document.addEventListener('touchend',function(e){
-    if(!el) return;
+    if(!el)return;
     var dx=e.changedTouches[0].clientX-startX;
+    var dy=e.changedTouches[0].clientY-startY;
+    var dt=Date.now()-startTime;
     var isLeft=el.id==='sidebarL';
-    if((isLeft&&dx<-60)||(!isLeft&&dx>60)) closeAllDrawers();
+    // Swipe threshold: >50px or fast flick (>0.4px/ms)
+    var isSwipe=Math.abs(dx)>Math.abs(dy)*1.5&&(Math.abs(dx)>50||(Math.abs(dx)/dt)>0.4);
+    if(isSwipe&&((isLeft&&dx<0)||(!isLeft&&dx>0))) closeAllDrawers();
   },{passive:true});
 })();
 
-// Lock scroll on sidebars from propagating to map
+// Prevent sidebar scroll from propagating to map on iOS
 ['sidebarL','sidebarR'].forEach(function(id){
   var el=document.getElementById(id);
   if(el) el.addEventListener('touchmove',function(e){e.stopPropagation();},{passive:true});
 });
 
-var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-console.log('[GeoSpec v4.4] ready' + (isStandalone ? ' (installed app)' : ' (browser — tap "Add to Home Screen" to install)'));
+// ── iPad: show results panel inline (no drawer needed) ────────────
+if(isIPad && window.innerWidth >= 768){
+  // On iPad, results panel is always visible — no auto-drawer-open needed
+  var _origIPad = runAnalysisAtPoint;
+  runAnalysisAtPoint = function(ll){
+    _origIPad(ll);
+    // Ensure results sidebar is visible on iPad portrait (auto-open it)
+    if(window.innerWidth < 1024){
+      var sR=document.getElementById('sidebarR');
+      if(sR){
+        sR.classList.add('open');
+        var scrim=document.getElementById('drawerScrim');
+        if(scrim) scrim.classList.add('show');
+      }
+    }
+  };
+}
+
+// ── iOS status bar padding when in standalone ─────────────────────
+if(isIOS && isStandalone){
+  // When launched from home screen on iPhone with notch/Dynamic Island,
+  // the status bar area needs extra padding
+  document.querySelector('.topbar').style.paddingTop = 'max(8px, var(--safe-t))';
+}
+
+console.log('[GeoSpec v4.5]', isStandalone?'Running as installed app':'Open in browser'+(isIOS?' — tap Share ⎙ → Add to Home Screen to install':''));
 
 </script>
 </body>
